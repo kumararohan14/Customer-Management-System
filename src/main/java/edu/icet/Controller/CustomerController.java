@@ -4,6 +4,7 @@ import edu.icet.model.Customer;
 import edu.icet.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,8 +31,13 @@ public class CustomerController {
                 "Anuradhapura",
                 5000.00);
     }
+
     @GetMapping("get-all")
     public List<Customer> getAll(){
        return customerService.getAll();
+    }
+    @PostMapping("add-Customer")
+    public void addCustomer(Customer customer){
+        customerService.addCustomer(customer);
     }
 }
